@@ -11,7 +11,7 @@ const app = new Vue({
             console.log(result);
             result = response.data;
             console.log(result);
-            this.email = JSON.parse('response.data.response');
+            this.email = JSON.parse('result.response');
 
 
             /*effettuo una richiesta AJAX in javascript (in particolare ricorro alla libreria axios) ad un URL del 
