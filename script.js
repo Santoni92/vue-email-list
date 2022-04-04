@@ -7,11 +7,13 @@ const app = new Vue({
     },
     mounted(){
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
-            let result = response;
+            // let result = response;
+            //console.log(result);
+            const result = response.data;
             console.log(result);
-            result = response.data;
-            console.log(result);
-            this.email = JSON.parse('result.response');
+           // this.email = JSON.parse('response.data');
+            //this.email = JSON.parse(result);
+            this.email = result.response;
 
 
             /*effettuo una richiesta AJAX in javascript (in particolare ricorro alla libreria axios) ad un URL del 
