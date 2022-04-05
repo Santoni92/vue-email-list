@@ -3,26 +3,21 @@ console.log('JS OK!');
 const app = new Vue({
     el:'#app',
     data:{
-        email: '',
-        arrayEmails: []
+        mails: []
+        
     },
     mounted(){
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
-            const result = response.data;
-            console.log(result);
-            this.email = result.response;
-
-            /*      BONUS
-            for(let i = 0; i < 10;i++){
-                this.array.push(result.response);
-            }
-            
-            console.log(this.array);
-            */
-           
-        });
+        for(let i = 0; i < 10; i++){
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(({status,data}) => {
+                //console.log(data);
+                if(status == 200 && data.success){
+                    this.mails.push(data.response);
+                }
+            })
+        }
     }
-});
+})
+           
 
  /*effettuo una richiesta AJAX in javascript (in particolare ricorro alla libreria axios) ad un URL del 
  server di boolean il quale ritorna un dato in formato JSON . Una volta ricevuto il dato ne faccio il parsing 
